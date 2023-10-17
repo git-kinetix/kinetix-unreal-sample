@@ -26,8 +26,8 @@ public class KinetixRuntime : ModuleRules
 			new string[]
 			{
 				"Core",
-				"PoseSearch",
-				"glTFRuntime"
+				"glTFRuntime",
+				"PoseSearch"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);

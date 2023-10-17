@@ -77,6 +77,14 @@ bool UKinetixCoreSubsystem::Setup(const FKinetixCoreConfiguration& InConfigurati
 	}
 	KinetixAccount = Cast<UKinetixAccount>(SubcoreObject);
 
+	SubcoreObject = nullptr;
+	if (!InitializeSubcore(UKinetixUGC::StaticClass(), &SubcoreObject))
+	{
+		UE_LOG(LogKinetixRuntime, Warning, TEXT("KinetixAccount failed to initialize !"));
+		return false;
+	}
+	KinetixUGC = Cast<UKinetixUGC>(SubcoreObject);
+	
 	bCoreInitialized = true;
 	
 	for (int i = 0; i < OnCoreInitializedDelegates.Num(); ++i)
